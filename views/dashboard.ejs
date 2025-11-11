@@ -4,14 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <h1>Dashboard</h1>
-    <div id="info">Loading...</div>
-    <p>
-      <a href="/users">Manage Users</a>
-    </p>
-    <button id="logout">Logout</button>
+    <div class="container">
+      <h1>Dashboard</h1>
+      <div id="info">Loading...</div>
+      <p class="small">
+        <a href="/users">Manage Users</a>
+      </p>
+      <button id="logout">Logout</button>
+    </div>
 
     <script>
       const info = document.getElementById("info");

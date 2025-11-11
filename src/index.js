@@ -14,6 +14,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(cors());
+// Serve static files (CSS, client JS)
+app.use(express.static("public"));
 
 // Routes
 app.use("/api", userRouters);
