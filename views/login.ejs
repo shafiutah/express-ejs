@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <form id="loginForm">
+      <div>
+        <label>Email</label>
+        <input type="email" name="email" id="email" required />
+      </div>
+      <div>
+        <label>Password</label>
+        <input type="password" name="password" id="password" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    <p id="message" style="color: red"></p>
+    <p>Don't have an account? <a href="/auth/signup">Sign up</a></p>
+
+    <script>
+      const form = document.getElementById("loginForm");
+      const message = document.getElementById("message");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        message.textContent = "";
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+
+        try {
+          const res = await fetch("/api/auth/signin", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({email, password}),
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            message.textContent = data.message || "Login failed";
+            return;
+          }
+          localStorage.setItem("token", data.data.token);
+          window.location.href = "/dashboard";
+        } catch (err) {
+          message.textContent = err.message || "Login error";
+        }
+      });
+    </script>
+  </body>
+</html>

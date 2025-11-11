@@ -9,7 +9,7 @@ export const signup = async (req, res, next) => {
     if (userExists) {
       return res.status(400).json({status: 400, message: "User already exists"});
     }
-    const newUser = await createUserFunc({name, email, password});
+    const newUser = await createUserFunc(name, email, password);
     const token = generateToken(newUser);
     res.status(201).json({
       status: 201,

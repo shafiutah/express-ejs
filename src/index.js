@@ -11,11 +11,19 @@ const port = process.env.PORT || 5001;
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.set("view engine", "ejs");
 app.use(cors());
 
 // Routes
 app.use("/api", userRouters);
 app.use("/api/auth", authRoutes);
+
+// View routes (EJS pages)
+app.get("/auth/signup", (req, res) => res.render("signup"));
+app.get("/auth/login", (req, res) => res.render("login"));
+app.get("/dashboard", (req, res) => res.render("dashboard"));
+app.get("/users", (req, res) => res.render("users"));
 
 // Error handling
 app.use(errorHandling);

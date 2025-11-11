@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users</title>
+  </head>
+  <body>
+    <h1>Users</h1>
+    <div id="list">Loading users...</div>
+    <p>
+      <a href="/dashboard">Back to Dashboard</a>
+    </p>
+
+    <script>
+      async function loadUsers() {
+        try {
+          const token = localStorage.getItem("token");
+          const res = await fetch("/api/user", {
+            headers: token ? {Authorization: "Bearer " + token} : {},
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            document.getElementById("list").textContent = data.message || "Failed to load users";
+            return;
+          }
+          if (data.data && data.data.length) {
+            const ul = document.createElement("ul");
+            data.data.forEach((u) => {
+              const li = document.createElement("li");
+              li.textContent = `${u.id} - ${u.name} (${u.email})`;
+              ul.appendChild(li);
+            });
+            const container = document.getElementById("list");
+            container.innerHTML = "";
+            container.appendChild(ul);
+          } else {
+            document.getElementById("list").textContent = "No users found";
+          }
+        } catch (err) {
+          document.getElementById("list").textContent = "Error loading users";
+        }
+      }
+      loadUsers();
+    </script>
+  </body>
+</html>

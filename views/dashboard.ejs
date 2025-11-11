@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <h1>Dashboard</h1>
+    <div id="info">Loading...</div>
+    <p>
+      <a href="/users">Manage Users</a>
+    </p>
+    <button id="logout">Logout</button>
+
+    <script>
+      const info = document.getElementById("info");
+      const logoutBtn = document.getElementById("logout");
+
+      async function load() {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          window.location.href = "/auth/login";
+          return;
+        }
+        try {
+          const res = await fetch("/api/auth/dashboard", {
+            headers: {Authorization: "Bearer " + token},
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            localStorage.removeItem("token");
+            window.location.href = "/auth/login";
+            return;
+          }
+          info.innerHTML = `<p>Welcome, <strong>${data.data.email}</strong></p><pre>${JSON.stringify(data.data, null, 2)}</pre>`;
+        } catch (err) {
+          info.textContent = "Error loading dashboard";
+        }
+      }
+
+      logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("token");
+        window.location.href = "/auth/login";
+      });
+
+      load();
+    </script>
+  </body>
+</html>
