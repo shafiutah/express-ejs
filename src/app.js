@@ -3,7 +3,8 @@ import dotenv from "dotenv";
 import session from "express-session";
 import authRoutes from "./routers/auth.js";
 import userRoutes from "./routers/userRoutes.js";
-import errorHandling from "./middlewares/errorHandling.js";
+import createUserTable from "./data/createUserTable.js";
+import errorHandler from "./middlewares/errorHandler.js";
 
 dotenv.config();
 const app = express();
@@ -40,9 +41,10 @@ app.use((req, res, next) => {
 app.use("/", authRoutes);
 app.use("/users", userRoutes);
 
-app.use(errorHandling); // Error handling
+app.use(errorHandler); // Error handling
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
+  await createUserTable();
   console.log(`Server running on http://localhost:${PORT}`);
 });

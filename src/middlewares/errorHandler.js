@@ -1,10 +1,8 @@
-const errorHandling = (err, req, res, next) => {
-  console.log(err.stack);
-  res.status(500).json({
-    status: 500,
-    message: "Something went wrong!",
-    error: err.message,
+// Error handling middleware
+export default function errorHandler(err, req, res, next) {
+  console.error(err.stack);
+  res.status(err.status || 500).render("error", {
+    message: err.message || "Internal Server Error",
+    error: process.env.NODE_ENV === "production" ? {} : err,
   });
-};
-
-export default errorHandling;
+}

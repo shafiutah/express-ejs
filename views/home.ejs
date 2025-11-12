@@ -8,7 +8,8 @@
   </head>
   <body>
     <div class="container">
-      <h1>Welcome to the Home Page</h1>
+      <h1>Welcome to EJS</h1>
+      <h3 style="text-align: center">User Authentication & Management System</h3>
       <% if (messages && messages.success) { %>
       <p style="color: green; margin-bottom: 20px"><%= messages.success %></p>
       <% } %> <% if (user) { %>
@@ -16,7 +17,7 @@
       <p><a href="/users">Manage Users</a></p>
       <p><a href="/logout">Logout</a></p>
       <% } else { %>
-      <p>Please <a href="/login">Login</a> or <a href="/signup">Register</a></p>
+      <p style="margin-top: 20px; text-align: center">Please <a href="/login">Login</a> or <a href="/signup">Register</a></p>
       <% } %>
     </div>
   </body>
