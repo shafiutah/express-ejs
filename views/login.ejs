@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container" style="max-width: 420px">
+      <form id="loginForm" method="POST" action="/login">
+        <h2>Login</h2>
+        <div>
+          <label>Email</label>
+          <input type="email" name="email" id="email" required />
+        </div>
+        <div>
+          <label>Password</label>
+          <input type="password" name="password" id="password" required />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+      <% if (messages && messages.success) { %>
+      <p style="color: green; margin-top: 10px"><%= messages.success %></p>
+      <% } %> <% if (error) { %>
+      <p style="color: red"><%= error %></p>
+      <% } %>
+      <p class="small">Don't have an account? <a href="/signup">Sign up</a></p>
+    </div>
+  </body>
+</html>

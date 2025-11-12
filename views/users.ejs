@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Management</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/users.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>User Management</h1>
+        <a href="/">Back to Home</a>
+      </div>
+
+      <% if (messages && messages.success) { %>
+      <div class="alert alert-success"><%= messages.success %></div>
+      <% } %> <% if (messages && messages.error) { %>
+      <div class="alert alert-error" style="background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb">
+        <%= messages.error %>
+      </div>
+      <% } %> <% if (users && users.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Created At</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(user => { %>
+          <tr id="row-<%= user.id %>">
+            <td><%= user.id %></td>
+            <td><span id="name-<%= user.id %>"><%= user.name %></span></td>
+            <td><span id="email-<%= user.id %>"><%= user.email %></span></td>
+            <td><%= user.role %></td>
+            <td><%= new Date(user.created_at).toLocaleDateString() %></td>
+            <td>
+              <button class="btn btn-edit" onclick="document.getElementById('edit-row-<%= user.id %>').classList.toggle('active');">
+                Edit
+              </button>
+              <form
+                class="action-form"
+                method="POST"
+                action="/users/<%= user.id %>/delete"
+                onsubmit="return confirm('Are you sure you want to delete this user?');"
+              >
+                <button type="submit" class="btn btn-delete">Delete</button>
+              </form>
+            </td>
+          </tr>
+          <tr id="edit-row-<%= user.id %>" class="edit-row">
+            <td colspan="6">
+              <form class="edit-form" method="POST" action="/users/<%= user.id %>/update">
+                <div class="form-group">
+                  <label>Name:</label>
+                  <input type="text" name="name" value="<%= user.name %>" required />
+                </div>
+                <div class="form-group">
+                  <label>Email:</label>
+                  <input type="email" name="email" value="<%= user.email %>" required />
+                </div>
+                <div class="form-actions">
+                  <button type="submit" class="btn btn-save">Save Changes</button>
+                  <button
+                    type="button"
+                    class="btn btn-cancel"
+                    onclick="document.getElementById('edit-row-<%= user.id %>').classList.remove('active');"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </form>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% } else { %>
+      <p>No users found.</p>
+      <% } %>
+    </div>
+  </body>
+</html>
