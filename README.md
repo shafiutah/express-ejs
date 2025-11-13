@@ -14,7 +14,7 @@ A full-stack web application built with **Express.js**, **EJS**, and **PostgreSQ
 - [API Endpoints](#api-endpoints)
 - [Usage Guide](#usage-guide)
 - [Database Schema](#database-schema)
-- [Authentication Flow](#Authentication Flow)
+- [Authentication Flow](#authentication-flow)
 - [Validation Rules](#validation-rules)
 - [Flash Message System](#flash-message-system)
 - [Middleware](#middleware)
