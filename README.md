@@ -1,13 +1,3 @@
-
-# Main Topic
-
-## Section A
-
-This content should link to [Section B](#section-b) below.
-
-
-
-
 # Express EJS - User Authentication & Management System
 
 A full-stack web application built with **Express.js**, **EJS**, and **PostgreSQL**. This project demonstrates a complete authentication system with user management, form validation, and session-based flash messaging.
@@ -24,7 +14,7 @@ A full-stack web application built with **Express.js**, **EJS**, and **PostgreSQ
 - [API Endpoints](#api-endpoints)
 - [Usage Guide](#usage-guide)
 - [Database Schema](#database-schema)
-- [Authentication Flow](#authentication-flow)
+- [Authentication Flow](#🔐 Authentication Flow)
 - [Validation Rules](#validation-rules)
 - [Flash Message System](#flash-message-system)
 - [Middleware](#middleware)
@@ -692,7 +682,3 @@ If you encounter any issues or have questions:
 ---
 
 Made with ❤️ using Express.js, EJS, and PostgreSQL
-
-## Section B
-
-This section can link back to [Section A](#section-a) above.
