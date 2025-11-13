@@ -4,7 +4,7 @@ A full-stack web application built with **Express.js**, **EJS**, and **PostgreSQ
 
 ## 📋 Table of Contents
 
-- [Features](#features)
+- [Features](#-features)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
 - [Prerequisites](#prerequisites)
@@ -25,7 +25,7 @@ A full-stack web application built with **Express.js**, **EJS**, and **PostgreSQ
 
 ---
 
-## Features ✨
+## ✨ Features
 
 ### Authentication
 
