@@ -25,7 +25,7 @@ A full-stack web application built with **Express.js**, **EJS**, and **PostgreSQ
 
 ---
 
-## ✨ Features
+## Features ✨
 
 ### Authentication
 
@@ -66,7 +66,7 @@ A full-stack web application built with **Express.js**, **EJS**, and **PostgreSQ
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack 🛠 
 
 | Layer              | Technology                | Purpose                               |
 | ------------------ | ------------------------- | ------------------------------------- |
@@ -80,7 +80,7 @@ A full-stack web application built with **Express.js**, **EJS**, and **PostgreSQ
 
 ---
 
-## 📁 Project Structure
+## Project Structure 📁 
 
 ```
 express-ejs/
@@ -118,7 +118,7 @@ express-ejs/
 
 ---
 
-## 📦 Prerequisites
+## Prerequisites 📦 
 
 Before you begin, ensure you have the following installed:
 
@@ -129,7 +129,7 @@ Before you begin, ensure you have the following installed:
 
 ---
 
-## 🚀 Installation
+## Installation 🚀 
 
 ### 1. Clone the Repository
 
@@ -189,7 +189,7 @@ User table created successfully (or already exists)
 
 ---
 
-## ▶️ Running the Application
+## Running the Application ▶️ 
 
 ### Development Mode (with auto-reload)
 
@@ -207,7 +207,7 @@ node src/app.js
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints 🔌 
 
 ### Authentication Routes
 
@@ -233,7 +233,7 @@ node src/app.js
 
 ---
 
-## 📖 Usage Guide
+## Usage Guide 📖 
 
 ### 1. Sign Up
 
@@ -377,7 +377,7 @@ req.session.errorMessage → Error messages
 
 ---
 
-## ✔️ Validation Rules
+## Validation Rules ✔️ 
 
 ### Signup Form Validation (Joi Schema)
 
@@ -408,7 +408,7 @@ req.session.errorMessage → Error messages
 
 ---
 
-## 💬 Flash Message System
+## Flash Message System 💬
 
 The application uses a **custom session-based flash message system** (no external library like connect-flash).
 
@@ -463,7 +463,7 @@ req.session.errorMessage = "Name and email are required";
 
 ---
 
-## 🔧 Middleware
+## Middleware🔧 
 
 ### Session Middleware
 
@@ -517,7 +517,7 @@ app.use(errorHandling);
 
 ---
 
-## 🐛 Troubleshooting
+## Troubleshooting 🐛 
 
 ### Issue: "Cannot connect to database"
 
@@ -582,7 +582,7 @@ This is normal on first signup. bcryptjs uses 10 salt rounds by default for secu
 
 ---
 
-## 🚀 Future Enhancements
+## Future Enhancements 🚀 
 
 - [ ] Email verification on signup
 - [ ] Password reset functionality
@@ -604,7 +604,7 @@ This is normal on first signup. bcryptjs uses 10 salt rounds by default for secu
 
 ---
 
-## 🤝 Contributing
+## Contributing 🤝 
 
 Contributions are welcome! Here's how you can help:
 
@@ -623,13 +623,13 @@ Contributions are welcome! Here's how you can help:
 
 ---
 
-## 📄 License
+## License 📄 
 
 This project is licensed under the **ISC License** - see the `package.json` file for details.
 
 ---
 
-## 📞 Support
+## Support 📞 
 
 If you encounter any issues or have questions:
 
@@ -643,13 +643,13 @@ If you encounter any issues or have questions:
 
 ---
 
-## 👨‍💻 Author
+## Author 👨‍💻 
 
 **Shafi Utah** - [@shafiutah](https://github.com/shafiutah)
 
 ---
 
-## 📚 Additional Resources
+## Additional Resources 📚 
 
 - [Express.js Documentation](https://expressjs.com/)
 - [EJS Documentation](https://ejs.co/)
@@ -660,7 +660,7 @@ If you encounter any issues or have questions:
 
 ---
 
-## 🎯 Quick Start Checklist
+## Quick Start Checklist 🎯 
 
 - [ ] Clone repository
 - [ ] Install dependencies (`npm install`)
